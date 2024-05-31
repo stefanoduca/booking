@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Lexend+Deca:wght@100..900&family=Rowdies:wght@300;400;700&display=swap');
+
 /* ************************************ */
 :root {
   --bui_easing-slow-in: cubic-bezier(0,0,0.2,1);
@@ -20314,9 +20316,21 @@ h1:last-child,h2:last-child,h3:last-child,h4:last-child,h5:last-child,h6:last-ch
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
   width: 100%;
   z-index: -1;
+}
+
+.card-bg-image {
+  height: 40vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.3);
+  border-radius: 10%;
+}
+
+.border-text {
+  -webkit-text-stroke: 0.5px black; 
 }
 
 /* ************************************ */
@@ -20334,4 +20348,8 @@ input:focus, textarea:focus, select:focus, .form-control:focus {
 
 .bg-primary {
   background-color: var(--bui_color_brand_primary_background_dynamic) !important;
+}
+
+body {
+  font-family: "Lexend Deca";
 }

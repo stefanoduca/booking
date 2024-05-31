@@ -7,6 +7,7 @@
     <title>Booking.com</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./index.css">
+    
 </head>
 
 <body>
@@ -67,3 +68,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a3b677b2d0.js" crossorigin="anonymous"></script>
+    <script src="./lib/axios@1.1.2.min.js"></script>
+    <script src="./lib/libreria.js"></script>
+    <script src="./index.js"></script>
