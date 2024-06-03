@@ -12,8 +12,8 @@ if ($page == 'hotel' && isset($_GET['citta']) ) {
     $template = '/hotel.php';
 }
 
-if ($page == 'hotel-detail' && isset($_GET['citta']) ) {
-    $template = '/hotel.php';
+if ($page == 'hotel-detail' && isset($_GET['hotel']) ) {
+    $template = '/hotel-detail.php';
 }
 
 include __DIR__ . $template;

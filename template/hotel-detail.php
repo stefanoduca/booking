@@ -1,9 +1,9 @@
 <?php
 
-    $citta = $_GET['citta'];
+    $hotel = $_GET['hotel'];
 
-    $query = "SELECT * FROM hotel WHERE citta = '$citta'";
-    $hotel = eseguiQuery($conn, $query);
+    $query = "SELECT * FROM hotel WHERE codHotel = '$hotel'";
+    $hotel = eseguiQuery($conn, $query)[0];
 
 ?>
 
@@ -11,38 +11,74 @@
 
     <div class="row">
 
-        <div class="col-12 col-md-3">
-            <div class="map-bg">
-                <button id="btnApriMappa" class="btn btn-primary" data-city="<?= $citta ?>" data-hotel="<?= htmlentities(json_encode($hotel), ENT_QUOTES) ?>">Vedi su mappa</button>
-            </div>
+        <div class="col-12">
+            <h1 class="h4"><?= $hotel['nomeHotel'] ?></h1>
+            <p>
+                <i class="text-primary fa-solid fa-location-dot"></i>
+                <span><?= $hotel['indirizzo'] ?>, <?= $hotel['CAP'] ?>, <?= $hotel['citta'] ?></span>
+            </p>
         </div>
-        <div class="col-12 col-md-9">
-            
-            <h1 class="h5"><?= $citta ?>: <?= count($hotel) ?> strutture trovate</h1>
-
-            <?php foreach ($hotel as $singleHotel) : ?>
-
-            <div class="row my-3 p-3 border rounded-lg no-gutters">
-
-                <div class="col-12 col-md-4">
-                    <div class="card-bg-hotel border rounded-lg shadow-sm" style="background-image: url(img/hotels/<?= $singleHotel['img'] ?>);">
-                    </div>
+        
+        <div class="col-12 col-md-6 mt-4">
+            <div class="card-bg-image" style="background-image: url(./img/hotels/<?= $hotel['img'] ?>); border-radius: 10px"></div>
+        </div>
+        
+        <div class="col-12 col-md-6 mt-4">
+            <div>
+                <div>
+                    <?= $hotel['descrizione'] ?>
                 </div>
-
-                <div class="col-12 col-md-7 ml-3">
-                    <h1 class="h5 text-lowercase text-hotel">
-                        <b><?= $singleHotel['nomeHotel'] ?></b>
-                        <?php for ($i = 0; $i < $singleHotel['stelle']; $i++) : ?>
-                            <img src="img/star.png" alt="stella" style="width: 1.2rem;">
-                        <?php endfor; ?>
-                    </h1>
-                    <p class="text-hotel" style="font-size: 0.8rem"><?= $singleHotel['indirizzo'] ?>, <?= $singleHotel['citta'] ?></p>
-                    <p style="font-size: 0.8rem"><?= $singleHotel['descrizione'] ?></p>
+                <div class="mt-3">
+                    <?php if ($hotel['suites']): ?>
+                    <span class="badge badge-light border shadow-sm">
+                        <i class="fa-solid fa-bed mr-2"></i>
+                        <span>
+                            <?= $hotel['suites'] ?> suites
+                        </span>
+                    </span>
+                    <?php endif; ?>
+                    <?php if ($hotel['wifi']): ?>
+                    <span class="badge badge-light border shadow-sm">
+                        <i class="fa-solid fa-wifi"></i>
+                        <span>
+                            Wi-Fi Gratuito
+                        </span>
+                    </span>
+                    <?php endif; ?>
+                    <?php if ($hotel['piscina']): ?>
+                    <span class="badge badge-light border shadow-sm">
+                        <i class="fa-solid fa-water-ladder"></i>
+                        <span>
+                            Piscina Inclusa
+                        </span>
+                    </span>
+                    <?php endif; ?>
+                    <?php if ($hotel['spa']): ?>
+                    <span class="badge badge-light border shadow-sm">
+                        <i class="fa-solid fa-spa"></i>
+                        <span>
+                            SPA Inclusa
+                        </span>
+                    </span>
+                    <?php endif; ?>
+                    <?php if ($hotel['colazioneInclusa']): ?>
+                    <span class="badge badge-light border shadow-sm">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <span>
+                            Colazione Inclusa
+                        </span>
+                    </span>
+                    <?php endif; ?>
+                    <?php if ($hotel['cenaInclusa']): ?>
+                    <span class="badge badge-light border shadow-sm">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>
+                            Cena Inclusa
+                        </span>
+                    </span>
+                    <?php endif; ?>
                 </div>
-            
             </div>
-
-            <?php endforeach; ?>
         </div>
 
     </div>
