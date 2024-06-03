@@ -20327,10 +20327,39 @@ h1:last-child,h2:last-child,h3:last-child,h4:last-child,h5:last-child,h6:last-ch
   background-position: center;
   filter: grayscale(0.3);
   border-radius: 10%;
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+.card-bg-image:hover {
+  transform: scale(1.05);
+}
+
+.card-bg-hotel {
+  height: 30vh;
+  width: 17vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.map-bg {
+  background-image: url('./img/map-entry-point.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .border-text {
   -webkit-text-stroke: 0.5px black; 
+}
+
+.text-hotel {
+  color: var(--bui_color_brand_primary_background_dynamic);
 }
 
 /* ************************************ */

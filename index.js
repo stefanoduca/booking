@@ -1,5 +1,10 @@
 ﻿'use strict'
 
+window.onload = async function () {
+
+    await caricaGoogleMaps();
+}
+
 $(document).ready(function(){
 	
 	$("#btnUsername").click(function(){
@@ -29,5 +34,66 @@ $(document).ready(function(){
 			}
 		})
 	});
+
+	$('#btnApriMappa').click(function(){
+		
+		let city = $(this).data('city');
+		let hotel = $(this).data('hotel');
+		
+		let divMap = $(`<div id="divMap" style="height: 600px"></div>`);
+		let geocoder = new google.maps.Geocoder();
+
+		geocoder.geocode({ "address": city }, function (results, status) {
+
+			if (status == google.maps.GeocoderStatus.OK) {
+				let position = results[0].geometry.location
+				let mapOptions = {
+					"center": position,
+					"zoom": 13,
+					"styles": [
+						{
+							"featureType": "poi",
+							"stylers": [
+								{"visibility": "off"}
+							]
+						}
+					]
+				}
+				let map = new google.maps.Map(divMap.get(0), mapOptions)
+
+				drawMarkers(map, hotel);
+			}
+			else {
+				alert("indirizzo non valido")
+			}
+		})
+
+		Swal.fire({
+			html: divMap.get(0),
+			width: 1400,
+			showCloseButton: true,
+			showConfirmButton: false,
+		});
+	});
 })
 
+function drawMarkers(map, hotel) {
+	
+	let geocoder = new google.maps.Geocoder();
+
+	for(let singleHotel of hotel) {
+		geocoder.geocode({ "address": `${singleHotel.indirizzo}, ${singleHotel.citta}, (${singleHotel.siglaProvincia})` }, function (results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				let position = results[0].geometry.location
+				new google.maps.Marker({
+					map: map,
+					position: position,
+					title: singleHotel.nomeHotel
+				})
+			}
+			else {
+				alert("indirizzo non valido")
+			}
+		})
+	}
+}
