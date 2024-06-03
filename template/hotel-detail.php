@@ -33,7 +33,7 @@
                     <span class="badge badge-light border shadow-sm">
                         <i class="fa-solid fa-bed mr-2"></i>
                         <span>
-                            <?= $hotel['suites'] ?> suites
+                            Suites Incluse
                         </span>
                     </span>
                     <?php endif; ?>
@@ -78,7 +78,17 @@
                     </span>
                     <?php endif; ?>
                 </div>
+                <h1 class="h5 mt-3">Camere Disponibili:</h1>
+                <p>Stanze Singole: <?= ($hotel['stanzeSingole'] - $hotel['singolePrenotate']) ?></p>
+                <p>Stanze Doppie: <?= ($hotel['stanzeDoppie'] - $hotel['doppiePrenotate']) ?></p>
+                <p>Stanze Triple: <?= ($hotel['stanzeTriple'] - $hotel['triplePrenotate']) ?></p>
+                <p>Stanze Quadruple: <?= ($hotel['stanzeQuadruple'] - $hotel['quadruplePrenotate']) ?></p>
+                <p>Suites: <?= ($hotel['suites'] - $hotel['suitesPrenotate']) ?></p>
             </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#prenotaModal">Prenota</button>
         </div>
 
     </div>
