@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 header("Content-type: application/json; charset=utf-8");
 require_once("mysqli.php");
 $conn = apriConnessione();
@@ -11,6 +13,8 @@ $sql="SELECT username
  AND psw='".md5($password)."'";
 
 $data=eseguiQuery($conn, $sql);
+
+$_SESSION["username"]=$username;
 
 $result = count($data);
 

@@ -28,7 +28,13 @@ $(document).ready(function(){
 		.catch(errore)
 		.then(function({data}){
 			if(data.success) {
-				alert("Accesso avvenuto con successo!");
+				Swal.fire({
+					"icon": "success",
+					"title": "Accesso avvenuto con successo!"
+				}).then(function(){
+
+					window.location.href = "index.php";
+				});
 			} else {
 				$('#password-note').show();
 			}

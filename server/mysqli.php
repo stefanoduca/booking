@@ -43,3 +43,7 @@ function getValidParameter($parameter, $conn) {
         die("Missing parameter: $parameter");
     }
 }
+
+function isLogged() {
+    return isset($_SESSION['username']);
+}

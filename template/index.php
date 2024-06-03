@@ -1,9 +1,5 @@
 <?php
 
-require 'server/mysqli.php';
-
-$conn = apriConnessione();
-
 $page = $_GET['page'] ?? 'index.php';
 
 $template = '/home.php';
@@ -13,6 +9,10 @@ if ($page == 'login' ) {
 }
 
 if ($page == 'hotel' && isset($_GET['citta']) ) {
+    $template = '/hotel.php';
+}
+
+if ($page == 'hotel-detail' && isset($_GET['citta']) ) {
     $template = '/hotel.php';
 }
 

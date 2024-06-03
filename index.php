@@ -1,3 +1,17 @@
+<?php
+    session_start();
+
+    if (($_GET['page'] ?? '') == 'logout' ) {
+        unset($_SESSION['username']);
+
+        header('Location: ./');
+    }
+
+    require 'server/mysqli.php';
+
+    $conn = apriConnessione();
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -29,8 +43,12 @@
                 </div>
                 <div class="col-md-8 text-right">
                     <div class="d-flex justify-content-end align-items-center h-100 gap-3" style="gap: 0.5rem;">
-                        <a class="btn btn-outline-light">Iscriviti</a>
+                        <?php if (!isLogged()) : ?>
+                        <!-- <a class="btn btn-outline-light">Iscriviti</a> -->
                         <a href="./?page=login" class="btn btn-light mr-2">Accedi</a>
+                        <?php else : ?>
+                        <a href="./?page=logout" class="btn btn-light mr-2">Esci</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
