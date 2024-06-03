@@ -58,22 +58,40 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <ul class="navbar-nav mr-auto" style="height: 6vh;">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-star-half-stroke fa-lg"></i>
-                        <span>I più votati</span>
+                <li class="nav-item">
+                    <a href="./?page=hotel&filtro=suites" class="nav-link" href="#">
+                        <i class="fa-solid fa-bed mr-2"></i>
+                        <span>Suites Incluse</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-piggy-bank fa-lg"></i>
-                        <span>I più economici</span>
+                    <a href="./?page=hotel&filtro=wifi" class="nav-link" href="#">
+                        <i class="fa-solid fa-wifi"></i>
+                        <span>Wi-Fi Gratuito</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-crown fa-lg"></i>
-                        <span>I più lussuosi</span>
+                    <a href="./?page=hotel&filtro=piscina" class="nav-link" href="#">
+                        <i class="fa-solid fa-water-ladder"></i>
+                        <span>Piscina Inclusa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./?page=hotel&filtro=spa" class="nav-link" href="#">
+                        <i class="fa-solid fa-spa"></i>
+                        <span>SPA Inclusa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./?page=hotel&filtro=colazioneInclusa" class="nav-link" href="#">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <span>Colazione Inclusa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./?page=hotel&filtro=cenaInclusa" class="nav-link" href="#">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Cena Inclusa</span>
                     </a>
                 </li>
             </ul>

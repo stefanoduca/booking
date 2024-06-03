@@ -43,11 +43,12 @@ $(document).ready(function(){
 
 	$('#btnApriMappa').click(function(){
 		
-		let city = $(this).data('city');
+		let city = $(this).data('city') ? $(this).data('city') : 'Piemonte';
 		let hotel = $(this).data('hotel');
 		
 		let divMap = $(`<div id="divMap" style="height: 600px"></div>`);
 		let geocoder = new google.maps.Geocoder();
+		let zoom = $(this).data('city') ? 13 : 9;
 
 		geocoder.geocode({ "address": city }, function (results, status) {
 
@@ -55,7 +56,7 @@ $(document).ready(function(){
 				let position = results[0].geometry.location
 				let mapOptions = {
 					"center": position,
-					"zoom": 13,
+					"zoom": zoom,
 					"styles": [
 						{
 							"featureType": "poi",

@@ -8,7 +8,7 @@ if ($page == 'login' ) {
     $template = '/login.php';
 }
 
-if ($page == 'hotel' && isset($_GET['citta']) ) {
+if ($page == 'hotel' && (isset($_GET['citta']) || isset($_GET['filtro'])) ) {
     $template = '/hotel.php';
 }
 

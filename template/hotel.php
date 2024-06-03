@@ -1,9 +1,15 @@
 <?php
 
-    $citta = $_GET['citta'];
+    $citta = $_GET['citta'] ?? null;
+    $filtro = $_GET['filtro'] ?? null;
 
-    $query = "SELECT * FROM hotel WHERE citta = '$citta'";
-    $hotel = eseguiQuery($conn, $query);
+    if (isset($citta)) {
+        $query = "SELECT * FROM hotel WHERE citta = '$citta'";
+        $hotel = eseguiQuery($conn, $query);
+    } else {
+        $query = "SELECT * FROM hotel WHERE $filtro >= 1";
+        $hotel = eseguiQuery($conn, $query);
+    }
 
 ?>
 
@@ -18,7 +24,7 @@
         </div>
         <div class="col-12 col-md-9">
             
-            <h1 class="h5"><?= $citta ?>: <?= count($hotel) ?> strutture trovate</h1>
+            <h1 class="h5"><?= isset($citta) ? ($citta . ':') : '' ?> <?= count($hotel) ?> strutture trovate</h1>
 
             <?php foreach ($hotel as $singleHotel) : ?>
 
