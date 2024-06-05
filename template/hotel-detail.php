@@ -93,7 +93,7 @@
             <hr />
         </div>
 
-        <div class="col-12">
+        <div class="col-12 mb-3">
             <h1 class="h5">Recensioni degli ospiti</h1>
         </div>
 
@@ -104,34 +104,54 @@
 
         ?>
 
-        <div class="col-12">
+        <div class="col-12 mb-3">
             <div class="row">
 
-				<?php foreach($recensioni as $recesione) : ?>
-                <div class="col-12 col-md-4 m-3 p-3 border rounded">
+				<?php foreach($recensioni as $recensione) : ?>
+                <div class="col-12 col-md-4 mb-3">
+
+					<div class="border rounded p-3 h-100">
                     
-					<?php
-					
-						$immagineProfilo = "/img/utenti/" . $recesione['imgProfilo'];
+						<?php
+						
+							$immagineProfilo = "/img/utenti/" . $recensione['imgProfilo'];
 
-						// Controlla se il file esiste partendo dalla cartella padre.
-						// Se il file non esiste, mette un immagine di default
-						if (!file_exists(dirname(__DIR__) . $immagineProfilo)) {
-							$immagineProfilo = "/img/avatar.png";
-						}
-					?>
+							// Controlla se il file esiste partendo dalla cartella padre.
+							// Se il file non esiste, mette un immagine di default
+							if (!file_exists(dirname(__DIR__) . $immagineProfilo)) {
+								$immagineProfilo = "/img/avatar.png";
+							}
+						?>
 
-					<div class="d-flex justify-content-start align-items-center mb-4">
-						<img class="rounded-circle mr-2" style="width: 2rem;" src=".<?= $immagineProfilo ?>">
-						<p><b><?= $recesione['username'] ?></b></p>
+						<div class="d-flex justify-content-between align-items-center mb-4">
+							<div>
+								<img class="rounded-circle mr-2 mb-2" style="width: 2rem;" src=".<?= $immagineProfilo ?>">
+								<p><b><?= $recensione['username'] ?></b></p>
+							</div>
+							<div>
+								<?php for ($i = 0; $i < $recensione['stelle']; $i++) : ?>
+                            		<img src="img/star.png" alt="stella" style="width: 1.2rem;">
+                        		<?php endfor; ?>
+							</div>
+						</div>
+						<p><?= $recensione['testoRecensione'] ?></p>
 					</div>
-					<p><?= $recesione['testoRecensione'] ?></p>
 
                 </div>
 				<?php endforeach; ?>
 
             </div>
         </div>
+
+		<div class="col-12 mb-5">
+
+			<?php if (isset($_SESSION['username'])) : ?>	
+			<button id="btnScriviRecensione" class="btn btn-outline-primary" data-hotel-id="<?= $hotel['codHotel'] ?>">Scrivi una recensione</button>
+			<?php else : ?>
+			<a href="./?page=login">Accedi per scrivere una recensione</a>
+			<?php endif; ?>
+
+		</div>
 
     </div>
 

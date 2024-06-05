@@ -4,7 +4,7 @@ $page = $_GET['page'] ?? 'index.php';
 
 $template = '/home.php';
 
-if ($page == 'login' ) {
+if ($page == 'login' && !(isset($_SESSION['username'])) ) {
     $template = '/login.php';
 }
 

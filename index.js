@@ -82,6 +82,69 @@ $(document).ready(function(){
 			showConfirmButton: false,
 		});
 	});
+
+	$('#btnScriviRecensione').click(function () {
+
+		Swal.fire({
+			html: `
+				<input type="hidden" id="txtCodHotel" value="${$(this).data('hotel-id')}"></textarea>
+				<div>
+					<label for="txtRecensione">Recensione</label>
+					<textarea id="txtRecensione" class="form-control mb-2"></textarea>
+				</div>
+				<div>
+					<label for="ranStelle">Dai una preferenza di gradimento da 1 a 5</label>
+					<input id="ranStelle" class="form-control" type="range" min="1" max="5">
+				</div>
+			`,
+			preConfirm: () => {
+				let codHotel = document.getElementById("txtCodHotel").value;
+				let recensione = document.getElementById("txtRecensione").value;
+				let stelle = document.getElementById("ranStelle").value;
+			
+				// Se la recensione è vuota, ritorna un messaggio di errore https://sweetalert2.github.io/#input-types
+				if (!recensione.length) {
+					Swal.showValidationMessage(`
+						E' obbligatorio inserire una recensione!
+					`);
+				}
+
+				// Ritorna i valori da riutilizzare nella risposta https://sweetalert2.github.io/#input-types
+				return {
+					codHotel: codHotel,
+					recensione: recensione,
+					stelle: stelle,
+				};
+			},
+			confirmButtonText: "Invia",
+		}).then(function(response) {
+
+			if (response.isConfirmed) {
+
+				// response.value contiene già l'oggetto json validato con le informazioni che mi servono!
+				inviaRichiesta("POST", "server/inserisciRecensione.php", response.value).then(function (response) {
+
+					if (response) {
+
+						Swal.fire({
+							icon: "success",
+							title: "Recensione inserita con successo!"
+						}).then(function () {
+
+							window.location.reload();
+						});
+					} else {
+						Swal.fire({
+							icon: "error",
+							title: "Qualcosa è andato storto! Riprova più tardi"
+						})
+					}
+				})
+			}
+		})
+	});
+
+	
 })
 
 function drawMarkers(map, hotel) {
