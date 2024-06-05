@@ -2,6 +2,7 @@
 
 session_start();
 
+// Se non esiste un utente in sessione, non posso procedere con il salvataggio della prenotazione
 if (!isset($_SESSION['username'])) {
     header('Location: ./');
 }

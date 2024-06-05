@@ -1,5 +1,7 @@
 <?php
 
+    // Recupero l'hotel dal parametro in query string
+    // Deve esistere per forza -> vedi index.php riga 24
     $hotel = $_GET['hotel'];
 
     $query = "SELECT * FROM hotel WHERE codHotel = '$hotel'";
@@ -8,6 +10,7 @@
 	// Do per scontato di non avere un'utente in sessione
 	$utente = false;
 
+    // Controllo che ci sia un nome utente salvato in sessione
 	if (isset($_SESSION['username'])) {
 
 		$query = "SELECT * FROM utenti WHERE username = '{$_SESSION['username']}'";

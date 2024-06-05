@@ -3,10 +3,14 @@
     $citta = $_GET['citta'] ?? null;
     $filtro = $_GET['filtro'] ?? null;
 
+    // Se esiste la città, recupero la lista degli hotel per citta
     if (isset($citta)) {
         $query = "SELECT * FROM hotel WHERE citta = '$citta'";
         $hotel = eseguiQuery($conn, $query);
     } else {
+        // Se non esiste la città, deve esistere un parametro filtro
+        // >= 1 serve a verificare la presenza delle suites che, a differenza degli altri filtri,
+        // può avere un valore maggiore o uguale a 1
         $query = "SELECT * FROM hotel WHERE $filtro >= 1";
         $hotel = eseguiQuery($conn, $query);
     }

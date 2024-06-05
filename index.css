@@ -1,4 +1,11 @@
+/*
+  Importato font di Google https://fonts.google.com/
+*/
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Lexend+Deca:wght@100..900&family=Rowdies:wght@300;400;700&display=swap');
+
+/*
+  Codice css estratto dai sorgenti di Booking per renderlo più verosimile all'originale
+*/
 
 /* ************************************ */
 :root {
@@ -20309,6 +20316,9 @@ h1:last-child,h2:last-child,h3:last-child,h4:last-child,h5:last-child,h6:last-ch
   outline: none
 }
 
+/*
+  CSS personalizzato
+*/
 
 /* ************************************ */
 .bg-image {

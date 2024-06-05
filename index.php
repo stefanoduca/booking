@@ -1,9 +1,22 @@
 <?php
+    // Apro la sessione: questo comando è indispensabile per accedere alle risorse presenti nella variabile
+    // $_SESSION -> l'array contenente tutti i valori presenti in sessione
     session_start();
 
+    // Se la pagina richiesta è "logout", eliminiamo dalla sessione il valore "username"
+    // In questo modo la piattaforma non avrà più nessun utente salvato in sessione
+    // Attenzione: questo frammento di codice potrebbe essere migliorato portandolo dentro "index.php": il file che
+    // contiene già una logica di "routing" molto semplificata 
+    // https://divpusher.com/glossary/routing/#:~:text=Routing%20or%20router%20in%20web,simple%20routing%20example%20from%20Laravel. 
     if (($_GET['page'] ?? '') == 'logout' ) {
+        // unset permette di "distruggere" una variabile specificata
+        // è molto utile nel caso degli array quando si vuole eliminare in modo veloce un solo elemento
+        // al suo interno: in questo caso ci occupiamo di eliminare la variabile "username" contenente il nome
+        // dell'utente loggato
         unset($_SESSION['username']);
 
+        // Una volta svuotata la sessione del valore "username", facciamo un redirect sulla pagina principale senza
+        // specificare parametri in query string
         header('Location: ./');
     }
 
