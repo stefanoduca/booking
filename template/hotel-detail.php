@@ -89,6 +89,48 @@
 
         <div class="col-12">
             <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#prenotaModal">Prenota</button>
+
+            <hr />
+        </div>
+
+        <div class="col-12">
+            <h1 class="h5">Recensioni degli ospiti</h1>
+        </div>
+
+        <?php
+
+			$sql = "SELECT * FROM recensioni, utenti WHERE codHotel = " . $hotel["codHotel"] . " AND recensioni.codUtente = utenti.codUtente";
+			$recensioni = eseguiQuery($conn, $sql);
+
+        ?>
+
+        <div class="col-12">
+            <div class="row">
+
+				<?php foreach($recensioni as $recesione) : ?>
+                <div class="col-12 col-md-4 m-3 p-3 border rounded">
+                    
+					<?php
+					
+						$immagineProfilo = "/img/utenti/" . $recesione['imgProfilo'];
+
+						// Controlla se il file esiste partendo dalla cartella padre.
+						// Se il file non esiste, mette un immagine di default
+						if (!file_exists(dirname(__DIR__) . $immagineProfilo)) {
+							$immagineProfilo = "/img/avatar.png";
+						}
+					?>
+
+					<div class="d-flex justify-content-start align-items-center mb-4">
+						<img class="rounded-circle mr-2" style="width: 2rem;" src=".<?= $immagineProfilo ?>">
+						<p><b><?= $recesione['username'] ?></b></p>
+					</div>
+					<p><?= $recesione['testoRecensione'] ?></p>
+
+                </div>
+				<?php endforeach; ?>
+
+            </div>
         </div>
 
     </div>
