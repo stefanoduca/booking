@@ -5,6 +5,16 @@
     $query = "SELECT * FROM hotel WHERE codHotel = '$hotel'";
     $hotel = eseguiQuery($conn, $query)[0];
 
+	// Do per scontato di non avere un'utente in sessione
+	$utente = false;
+
+	if (isset($_SESSION['username'])) {
+
+		$query = "SELECT * FROM utenti WHERE username = '{$_SESSION['username']}'";
+		// Se l'utente cercato non esite, utente diventa false
+		$utente = eseguiQuery($conn, $query)[0] ?? false;
+	}
+
 ?>
 
 <section class="container mt-3">
@@ -85,10 +95,6 @@
                 <p>Stanze Quadruple: <?= ($hotel['stanzeQuadruple'] - $hotel['quadruplePrenotate']) ?></p>
                 <p>Suites: <?= ($hotel['suites'] - $hotel['suitesPrenotate']) ?></p>
             </div>
-        </div>
-
-        <div class="col-12">
-            <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#prenotaModal">Prenota</button>
 
             <hr />
         </div>
@@ -145,13 +151,19 @@
 
 		<div class="col-12 mb-5">
 
-			<?php if (isset($_SESSION['username'])) : ?>	
+			<?php if ($utente) : ?>	
 			<button id="btnScriviRecensione" class="btn btn-outline-primary" data-hotel-id="<?= $hotel['codHotel'] ?>">Scrivi una recensione</button>
 			<?php else : ?>
 			<a href="./?page=login">Accedi per scrivere una recensione</a>
 			<?php endif; ?>
 
 		</div>
+
+		<?php if ($utente) : ?>
+		<div class="position-fixed shadow" style="bottom: 1rem; right: 5rem;">
+			<button id="btnPrenota" class="btn btn-primary" data-utente-id="<?= $utente['codUtente'] ?>" data-hotel="<?= $hotel['nomeHotel'] ?>" data-hotel-id="<?= $hotel['codHotel'] ?>"><span class="h4">Prenota ora!</span></button>
+		</div>
+		<?php endif; ?>
 
     </div>
 

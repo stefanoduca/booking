@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 		Swal.fire({
 			html: `
-				<input type="hidden" id="txtCodHotel" value="${$(this).data('hotel-id')}"></textarea>
+				<input type="hidden" id="txtCodHotel" value="${$(this).data('hotel-id')}">
 				<div>
 					<label for="txtRecensione">Recensione</label>
 					<textarea id="txtRecensione" class="form-control mb-2"></textarea>
@@ -144,6 +144,113 @@ $(document).ready(function(){
 		})
 	});
 
+	$('#btnPrenota').click(function () {
+
+		Swal.fire({
+			title: `Prenota subito all' ${$(this).data('hotel')}`,
+			html: `
+				<input type="hidden" id="txtCodHotel" value="${$(this).data('hotel-id')}">
+				<input type="hidden" id="txtCodUtente" value="${$(this).data('utente-id')}">
+				<div>
+					<label for="txtDataInizio">Data Inizio</label>
+					<input id="txtDataInizio" type="date" class="form-control mb-2">
+				</div>
+				<div>
+					<label for="txtDataFine">Data Fine</label>
+					<input id="txtDataFine" type="date"class="form-control mb-2">
+				</div>
+				<div>
+					<label for="txtNumeroPersone">Numero Persone</label>
+					<input id="txtNumeroPersone" type="number" min="1" class="form-control mb-2">
+				</div>
+				<div>
+					<label for="chkSuite">Voglio prenotare una Suite</label>
+					<input id="chkSuite" type="checkbox" class="form-control mb-2">
+				</div>
+			`,
+			preConfirm: () => {
+				let codHotel = document.getElementById("txtCodHotel").value;
+				let codUtente = document.getElementById("txtCodUtente").value;
+				let dataInizio = document.getElementById("txtDataInizio").value;
+				let dataFine = document.getElementById("txtDataFine").value;
+				let numeroPersone = document.getElementById("txtNumeroPersone").value;
+				let suite 
+				if(numeroPersone==1){
+					suite="singola";
+				}
+				else if(numeroPersone==2){
+					suite="oppia";
+				}
+				else if(numeroPersone==3){
+					suite="tripla";
+				}
+				else if(numeroPersone==4){
+					suite="quadrupla";
+				}
+				else{
+					suite="suite";
+				}
+				let prezzo=80;
+			
+				// Se la recensione è vuota, ritorna un messaggio di errore https://sweetalert2.github.io/#input-types
+				if (!dataInizio.length) {
+					Swal.showValidationMessage(`
+						E' obbligatorio inserire una data di inizio!
+					`);
+				}
+
+				if (!dataFine.length) {
+					Swal.showValidationMessage(`
+						E' obbligatorio inserire una data di fine!
+					`);
+				}
+
+				if (!numeroPersone.length) {
+					Swal.showValidationMessage(`
+						E' obbligatorio inserire il numero delle persone!
+					`);
+				}
+
+				// Ritorna i valori da riutilizzare nella risposta https://sweetalert2.github.io/#input-types
+				return {
+					codHotel: codHotel,
+					codUtente: codUtente,
+					dataInizio: dataInizio,
+					dataFine: dataFine,
+					numeroPersone: numeroPersone,
+					prezzoPerPersona:prezzo,
+					suite: suite,
+				};
+			},
+			showCloseButton: true,
+		}).then(function(response) {
+
+			console.log(response);
+
+			if (response.isConfirmed) {
+
+				// response.value contiene già l'oggetto json validato con le informazioni che mi servono!
+				inviaRichiesta("POST", "server/inserisciPrenotazione.php", response.value).then(function (response) {
+					
+					if (response) {
+
+						Swal.fire({
+							icon: "success",
+							title: "Recensione inserita con successo!"
+						}).then(function () {
+
+							window.location.reload();
+						});
+					} else {
+						Swal.fire({
+							icon: "error",
+							title: "Qualcosa è andato storto! Riprova più tardi"
+						})
+					}
+				})
+			}
+		})
+	});
 	
 })
 
