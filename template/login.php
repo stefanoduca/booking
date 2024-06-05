@@ -142,16 +142,8 @@
         <div class="account-access__footer">
             <div class="u-text-center bui_font_caption portal_footer">
                 <div class="v3PQKnrwstNw3Fp4rB_v JVSac8GXWcJ4ZI8Pk8vq lbkyKXfdfIDAMGb_xv0E">
-                    <div class="g_owqbO4sV9gG2ytNxQS pDgGzoHF_5wMiAoczvVA">Effettuando l'accesso o creando un account
-                        accetti i <a target="_blank" rel="noopener noreferrer"
-                            href="https://www.booking.com/content/terms.it.html?aid=2369661"
-                            class="Y2GrMepHg4YXB1IIqu9a UE8Xzvf8uvOHuxCap9fq bui_color_action nw-terms YyYzJ7AivwcR7QxFB55f"><span>Termini
-                                e le Condizioni</span></a> e l’<a target="_blank" rel="noopener noreferrer"
-                            href="https://www.booking.com/content/privacy.it.html?aid=2369661"
-                            class="Y2GrMepHg4YXB1IIqu9a UE8Xzvf8uvOHuxCap9fq bui_color_action nw-privacy YyYzJ7AivwcR7QxFB55f"><span>Informativa
-                                sulla Privacy</span></a> </div>
                     <div class="g_owqbO4sV9gG2ytNxQS pDgGzoHF_5wMiAoczvVA">Tutti i diritti riservati. <br>Copyright
-                        (2006 - 2024) - Booking.com™</div>
+                        (2024) - DUCA STEFANO™</div>
                 </div>
             </div>
         </div>
@@ -230,16 +222,8 @@
         <div class="account-access__footer">
             <div class="u-text-center bui_font_caption portal_footer">
                 <div class="v3PQKnrwstNw3Fp4rB_v JVSac8GXWcJ4ZI8Pk8vq lbkyKXfdfIDAMGb_xv0E">
-                    <div class="g_owqbO4sV9gG2ytNxQS pDgGzoHF_5wMiAoczvVA">Effettuando l'accesso o creando un account
-                        accetti i <a target="_blank" rel="noopener noreferrer"
-                            href="https://www.booking.com/content/terms.it.html?aid=2369661"
-                            class="Y2GrMepHg4YXB1IIqu9a UE8Xzvf8uvOHuxCap9fq bui_color_action nw-terms YyYzJ7AivwcR7QxFB55f"><span>Termini
-                                e le Condizioni</span></a> e l’<a target="_blank" rel="noopener noreferrer"
-                            href="https://www.booking.com/content/privacy.it.html?aid=2369661"
-                            class="Y2GrMepHg4YXB1IIqu9a UE8Xzvf8uvOHuxCap9fq bui_color_action nw-privacy YyYzJ7AivwcR7QxFB55f"><span>Informativa
-                                sulla Privacy</span></a> </div>
                     <div class="g_owqbO4sV9gG2ytNxQS pDgGzoHF_5wMiAoczvVA">Tutti i diritti riservati. <br>Copyright
-                        (2006 - 2024) - Booking.com™</div>
+                        (2024) - DUCA STEFANO™</div>
                 </div>
             </div>
         </div>
