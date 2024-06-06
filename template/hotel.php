@@ -49,6 +49,9 @@
                     <p class="text-hotel" style="font-size: 0.8rem"><?= $singleHotel['indirizzo'] ?>, <?= $singleHotel['citta'] ?></p>
                     <p style="font-size: 0.8rem"><?= $singleHotel['descrizione'] ?></p>
                     <a href="./?page=hotel-detail&hotel=<?= $singleHotel['codHotel'] ?>" class="btn btn-primary">Dettagli</a>
+                    <div class="mt-3">
+                        <p>Prezzo: 80€</p>
+                    </div>
                 </div>
             
             </div>
