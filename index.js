@@ -236,7 +236,7 @@ $(document).ready(function(){
 
 						Swal.fire({
 							icon: "success",
-							title: "Recensione inserita con successo!"
+							title: "Prenoatzione effettuata!"
 						}).then(function () {
 
 							window.location.reload();
